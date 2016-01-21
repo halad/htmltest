@@ -3,8 +3,26 @@
     Html Tester
 </title>
 <body>
-<button id="show" onclick="assemble.shareViews();"> Click Me </button>
+<button id="show" onclick="shareViews();"> Click Me </button>
 <script async src='https://assemble-hub-isqft.internalassemble.com/views/sharejs'>
 </script>
+
+
+<script type="text/javascript">
+
+var shareViews = function(){
+
+	var promise = assemble.shareViews();
+	promise.done(function(payload){
+	document.getElementById("results").innerHTML = JSON.stringify(payload, undefined, 2);
+	});
+}
+</script>
+
+<div>Results:</div>
+<pre id="results">
+</pre>
 </body>
+
+
 </html>
